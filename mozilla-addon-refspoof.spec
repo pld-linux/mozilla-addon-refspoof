@@ -8,6 +8,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://refspoof.mozdev.org/%{_realname}_%{fver}.xpi
+# Source0-md5:	9c792cc208fb9103806c0cb75e8f0871
 Source1:	%{_realname}-installed-chrome.txt
 URL:		http://refspoof.mozdev.org/
 BuildRequires:	zip
