@@ -12,8 +12,9 @@ Source1:	%{_realname}-installed-chrome.txt
 URL:		http://refspoof.mozdev.org/
 BuildRequires:	zip
 BuildRequires:	unzip
-BuildArch:	noarch
+Requires(post,postun):	textutils
 Requires:	mozilla >= 1.0-7
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{_realname}-%{version}-root-%(id -u -n)
 
 %define         _chromedir      %{_libdir}/mozilla/chrome
@@ -44,9 +45,11 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_chromedir}
 rm -rf $RPM_BUILD_ROOT
 
 %post
+umask 022
 cat %{_chromedir}/*-installed-chrome.txt >%{_chromedir}/installed-chrome.txt
 
 %postun
+umask 022
 cat %{_chromedir}/*-installed-chrome.txt >%{_chromedir}/installed-chrome.txt
 
 %files
