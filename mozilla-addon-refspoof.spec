@@ -1,4 +1,5 @@
-Summary:	A simple toolbar that allow to load a page with a different Referer.
+Summary:	A simple toolbar that allow to load a page with a different Referer
+Summary(pl):	Pasek pozwalaj±cy wczytywaæ stronê z innym nag³ówkiem Referer
 Name:		mozilla-addon-refspoof
 %define		_realname	refspoof
 Version:	0.4.0
@@ -20,6 +21,10 @@ BuildRoot:	%{tmpdir}/%{_realname}-%{version}-root-%(id -u -n)
 
 %description
 A simple toolbar that allow to load a page with a different Referer.
+
+%description -l pl
+Prosty pasek narzêdziowy pozwalaj±cy wczytywaæ stronê z innym
+nag³ówkiem Referer.
 
 %prep
 %setup -q -c %{name}-%{version}
