@@ -1,0 +1,2 @@
+content,install,url,jar:resource:/chrome/refspoof.jar!/content/
+locale,install,url,jar:resource:/chrome/refspoof.jar!/locale/en-US/refspoof/
