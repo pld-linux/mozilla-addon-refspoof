@@ -3,8 +3,8 @@ Summary(pl):	Pasek pozwalaj±cy wczytywaæ stronê z innym nag³ówkiem Referer
 Name:		mozilla-addon-refspoof
 %define		_realname	refspoof
 Version:	0.5.0
-%define fver    %(echo %{version} | tr . _)
-Release:	2
+%define	fver	%(echo %{version} | tr . _)
+Release:	3
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://download.mozdev.org/%{_realname}/%{_realname}_%{fver}.xpi
@@ -13,12 +13,13 @@ Source1:	%{_realname}-installed-chrome.txt
 URL:		http://refspoof.mozdev.org/
 BuildRequires:	zip
 BuildRequires:	unzip
+Requires(post,postun):	mozilla
 Requires(post,postun):	textutils
 Requires:	mozilla >= 1.0-7
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{_realname}-%{version}-root-%(id -u -n)
 
-%define         _chromedir      %{_datadir}/mozilla/chrome
+%define		_chromedir	%{_datadir}/mozilla/chrome
 
 %description
 A simple toolbar that allow to load a page with a different Referer.
@@ -48,10 +49,18 @@ rm -rf $RPM_BUILD_ROOT
 %post
 umask 022
 cat %{_chromedir}/*-installed-chrome.txt >%{_chromedir}/installed-chrome.txt
+rm -f %{_libdir}/mozilla/components/{compreg,xpti}.dat \
+        %{_datadir}/mozilla/chrome/{chrome.rdf,overlayinfo/*/*/*.rdf} ||:
+MOZILLA_FIVE_HOME=%{_libdir}/mozilla %{_bindir}/regxpcom ||:
+MOZILLA_FIVE_HOME=%{_libdir}/mozilla %{_bindir}/regchrome ||:
 
 %postun
 umask 022
 cat %{_chromedir}/*-installed-chrome.txt >%{_chromedir}/installed-chrome.txt
+rm -f %{_libdir}/mozilla/components/{compreg,xpti}.dat \
+        %{_datadir}/mozilla/chrome/{chrome.rdf,overlayinfo/*/*/*.rdf}
+MOZILLA_FIVE_HOME=%{_libdir}/mozilla %{_bindir}/regxpcom
+MOZILLA_FIVE_HOME=%{_libdir}/mozilla %{_bindir}/regchrome
 
 %files
 %defattr(644,root,root,755)
