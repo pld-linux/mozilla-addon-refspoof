@@ -7,17 +7,17 @@ Version:	0.5.0
 Release:	3
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	http://download.mozdev.org/%{_realname}/%{_realname}_%{fver}.xpi
+Source0:	http://download.mozdev.org/refspoof/%{_realname}_%{fver}.xpi
 # Source0-md5:	e503189fc771b2a15fea97378796cbb9
 Source1:	%{_realname}-installed-chrome.txt
 URL:		http://refspoof.mozdev.org/
-BuildRequires:	zip
 BuildRequires:	unzip
+BuildRequires:	zip
 Requires(post,postun):	mozilla >= 1.7.3-3
 Requires(post,postun):	textutils
 Requires:	mozilla >= 1.0-7
 BuildArch:	noarch
-BuildRoot:	%{tmpdir}/%{_realname}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_chromedir	%{_datadir}/mozilla/chrome
 
@@ -29,7 +29,7 @@ Prosty pasek narzêdziowy pozwalaj±cy wczytywaæ stronê z innym
 nag³ówkiem Referer.
 
 %prep
-%setup -q -c %{name}-%{version}
+%setup -q -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
