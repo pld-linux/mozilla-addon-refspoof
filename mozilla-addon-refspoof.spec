@@ -4,7 +4,7 @@ Name:		mozilla-addon-refspoof
 %define		_realname	refspoof
 Version:	0.5.0
 %define fver    %(echo %{version} | tr . _)
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://download.mozdev.org/%{_realname}/%{_realname}_%{fver}.xpi
@@ -18,7 +18,7 @@ Requires:	mozilla >= 1.0-7
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{_realname}-%{version}-root-%(id -u -n)
 
-%define         _chromedir      %{_libdir}/mozilla/chrome
+%define         _chromedir      %{_datadir}/mozilla/chrome
 
 %description
 A simple toolbar that allow to load a page with a different Referer.
