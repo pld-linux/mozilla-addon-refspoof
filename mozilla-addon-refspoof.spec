@@ -2,13 +2,13 @@ Summary:	A simple toolbar that allow to load a page with a different Referer
 Summary(pl):	Pasek pozwalaj±cy wczytywaæ stronê z innym nag³ówkiem Referer
 Name:		mozilla-addon-refspoof
 %define		_realname	refspoof
-Version:	0.4.0
+Version:	0.5.0
 %define fver    %(echo %{version} | tr . _)
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	http://refspoof.mozdev.org/%{_realname}_%{fver}.xpi
-# Source0-md5:	9c792cc208fb9103806c0cb75e8f0871
+Source0:	http://download.mozdev.org/%{_realname}/%{_realname}_%{fver}.xpi
+# Source0-md5:	e503189fc771b2a15fea97378796cbb9
 Source1:	%{_realname}-installed-chrome.txt
 URL:		http://refspoof.mozdev.org/
 BuildRequires:	zip
