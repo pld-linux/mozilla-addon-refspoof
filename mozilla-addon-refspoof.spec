@@ -48,7 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 umask 022
-cat %{_chromedir}/*-installed-chrome.txt >%{_chromedir}/installed-chrome.txt
+cat %{_chromedir}/*-installed-chrome.txt >%{_chromedir}/installed-chrome.txt ||:
 rm -f %{_libdir}/mozilla/components/{compreg,xpti}.dat \
         %{_datadir}/mozilla/chrome/{chrome.rdf,overlayinfo/*/*/*.rdf} ||:
 MOZILLA_FIVE_HOME=%{_libdir}/mozilla %{_bindir}/regxpcom ||:
