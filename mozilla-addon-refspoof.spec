@@ -3,7 +3,7 @@ Summary(pl):	Pasek pozwalaj±cy wczytywaæ stronê z innym nag³ówkiem Referer
 Name:		mozilla-addon-refspoof
 %define		_realname	refspoof
 Version:	0.4.0
-%define fver    %(echo %{version} | tr "." "_")
+%define fver    %(echo %{version} | tr . _)
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
