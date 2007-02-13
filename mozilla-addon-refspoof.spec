@@ -1,5 +1,5 @@
 Summary:	A simple toolbar that allow to load a page with a different Referer
-Summary(pl.UTF-8):   Pasek pozwalający wczytywać stronę z innym nagłówkiem Referer
+Summary(pl.UTF-8):	Pasek pozwalający wczytywać stronę z innym nagłówkiem Referer
 Name:		mozilla-addon-refspoof
 %define		_realname	refspoof
 Version:	0.5.0
